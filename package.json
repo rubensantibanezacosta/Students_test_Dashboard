@@ -1,0 +1,23 @@
+{
+  "name": "estudiantes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubensantibanezacosta/Student_dashboard.git"
+  },
+  "keywords": [
+    "spring",
+    "react"
+  ],
+  "author": "Ruben Santibañez Acosta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rubensantibanezacosta/Student_dashboard/issues"
+  },
+  "homepage": "https://github.com/rubensantibanezacosta/Student_dashboard#readme"
+}
