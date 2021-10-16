@@ -13,7 +13,19 @@
 </div>
 <div class="container main bg-transparent">
   <div class="row justify-content-center mb-4">
-    <div class="col-7 mb-5 p-0">
+    <div class="col-2 d-flex justify-content-end h-25 mt-5">
+      <button class="btn btn-outline-info text-light h-30 w-25 bg-gradient">
+        <img src="{{ fileIcon }}" alt="" />
+      </button>
+      <button class="btn btn-outline-info text-light h-30 w-25 bg-gradient">
+        <img src="{{ editIcon }}" alt="" />
+      </button>
+      <button class="btn btn-outline-info text-light h-30 w-25 bg-gradient">
+        <img src="{{ trashIcon }}" alt="" />
+      </button>
+    </div>
+
+    <div class="col-6 mb-5 p-0">
       <p
         class="
           border
@@ -26,8 +38,12 @@
           bg-transparent
         "
       >
+      
         ALUMNO
+        
       </p>
+
+      
       <select
         class="
           form-select
@@ -45,19 +61,15 @@
           Selecciona alumno...
         </option>
         <option
+          *ngFor="let student of students"
           class="text-light text-center bg-dark justify-content-between"
-          value="1"
+          value="{{ student.dni }}"
         >
-          1. | 44334059-H | Ruben | Santibañez Acosta
-        </option>
-        <option
-          class="text-light text-center bg-dark justify-content-between"
-          value="2"
-        >
-          2. | 44334059-H | Ruben | Santibañez Acosta
+          {{ student.dni }} | {{ student.name }} | {{ student.surname }}
         </option>
       </select>
     </div>
+
     <div class="col-1 mb-5 p-0">
       <p
         class="
@@ -94,15 +106,18 @@
         >
           {{ year.year }}
         </option>
-        <option
-          class="text-light text-center bg-dark justify-content-between"
-          value="2020"
-        >
-          2020
-        </option>
       </select>
     </div>
+    <div class="col-2 d-flex justify-content-start h-25 mt-5">
+      <button class="btn btn-outline-info text-light h-33 w-33 bg-gradient">
+        <img src="{{ fileIcon }}" alt="" />
+      </button>
+      <button class="btn btn-outline-info text-light h-33 w-33 bg-gradient">
+        <img src="{{ trashIcon }}" alt="" />
+      </button>
+    </div>
   </div>
+
   <div class="row justify-content-center">
     <div class="col-6 border rounded border-info border-3">
       <table class="col-12 table table-dark table text-center text-info m-1">
@@ -110,16 +125,30 @@
           <th class="text-center celda">ASIGNATURA</th>
           <th class="text-center celda">NOTA</th>
           <th class="text-center celda botonera"></th>
-          <th class="text-center celda botonera"></th>
+          <th class="text-center celda botonera">
+            <button
+              class="btn btn-outline-info text-light h-33 w-100 bg-gradient"
+            >
+              <img src="{{ fileIcon }}" alt="" />
+            </button>
+          </th>
         </tr>
         <tr>
           <td class="text-center text-light celda">PGL</td>
           <td class="text-center text-light celda">9.83</td>
           <td class="text-center text-light botonera">
-            <div class="circle bg-transparent">Editar</div>
+            <button
+              class="btn btn-outline-info text-light h-33 w-100 bg-gradient"
+            >
+              <img src="{{ editIcon }}" alt="" />
+            </button>
           </td>
           <td class="text-center text-light botonera">
-            <div class="circle bg-transparent">Borrar</div>
+            <button
+              class="btn btn-outline-info text-light h-33 w-100 bg-gradient"
+            >
+              <img src="{{ trashIcon }}" alt="" />
+            </button>
           </td>
         </tr>
         <tr>
@@ -130,6 +159,5 @@
         </tr>
       </table>
     </div>
-    <div class="col-2 m-2"></div>
   </div>
 </div>

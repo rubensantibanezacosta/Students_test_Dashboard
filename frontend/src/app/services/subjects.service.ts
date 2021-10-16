@@ -8,7 +8,7 @@ import { Subjects } from '../classes/subjects';
 })
 export class SubjectsService {
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
-  endpoint: string = "http://localhost:8080";
+  endpoint: string = "http://localhost:8080/subjects";
   constructor(private httpClient: HttpClient) { }
 
   getSubjects(): Observable<Subjects[]> {

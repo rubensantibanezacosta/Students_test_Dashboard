@@ -1,8 +1,6 @@
 package com.ruben.estudiantes.entity.models;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Objects;
 
 @Entity
 public class Years {
@@ -10,7 +8,8 @@ public class Years {
     @Id
     @Column(name = "year", nullable = false)
     private int year;
-
+    @OneToMany(mappedBy = "yearsByYear")
+   
 
     public int getYear() {
         return year;
@@ -20,5 +19,14 @@ public class Years {
         this.year = year;
     }
 
+/* 
+    private Collection<Califications> calificationsByYear;
 
+    public Collection<Califications> getCalificationsByYear() {
+        return calificationsByYear;
+    }
+
+    public void setCalificationsByYear(Collection<Califications> calificationsByYear) {
+        this.calificationsByYear = calificationsByYear;
+    } */
 }

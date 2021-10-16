@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity
 public class Students {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   
     @Id
     @Column(name = "dni", nullable = false, length = 15)
     private String dni;
@@ -18,6 +18,7 @@ public class Students {
     private String name;
     @OneToMany(mappedBy = "studentsByStudentDni")
     private Collection<Califications> calificationsByDni;
+
 
     public String getDni() {
         return dni;
@@ -55,5 +56,6 @@ public class Students {
     public int hashCode() {
         return Objects.hash(dni, surname, name);
     }
+
 
 }

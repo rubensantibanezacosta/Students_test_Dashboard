@@ -10,19 +10,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
 
 public class YearsController {
     @Autowired
     IYears iYearsService;
 
-
     @GetMapping("/years")
     List<Years> findAll() {
         return iYearsService.findAll();
     }
-    
+
     @PostMapping(value = "/years", consumes = "application/json")
     void add(@RequestBody String stringYear) {
         ObjectMapper om = new ObjectMapper();

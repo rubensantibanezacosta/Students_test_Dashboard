@@ -21,6 +21,8 @@ public class CalificationsPK implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int year;
 
+
+
     public int getSubjectId() {
         return subjectId;
     }

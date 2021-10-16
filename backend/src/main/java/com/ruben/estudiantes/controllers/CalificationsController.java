@@ -4,8 +4,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ruben.estudiantes.entity.models.Califications;
+import com.ruben.estudiantes.entity.models.dao.ICalificationsDao;
+import com.ruben.estudiantes.entity.models.services.CalificationsImpl;
 import com.ruben.estudiantes.entity.models.services.ICalifications;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,23 +20,22 @@ import java.util.Optional;
 @RequestMapping(value = "/califications")
 @RestController
 public class CalificationsController {
-/*   @Autowired
-    ICalifications iCalificationsService;
 
-    @GetMapping("/califications")
-    List<Califications> getAll() {
-        return iCalificationsServiceDao.findAll();
-    }
+     @Autowired
+   private ICalifications iCalification;
 
-    @GetMapping("/califications/{subject_id}/{dni}/{year}")
-    Califications getOne(@PathVariable("dni") int subject_id,@PathVariable("dni") String dni,@PathVariable("year") int year ){
-        Optional<Califications> calification = iCalificationsService.getOne(new CalificationsPK(subject_id,dni,year));
+
+    @GetMapping("/califications/{dni}/{subject_id}/{year}")
+    Califications getValue(String dni, int subjectId, int year) {
+        Optional<Califications> calification=iCalification.findByStudentDniAndSubjectIdAndYear(dni, subjectId, year);
         if (calification.isPresent()) {
             return calification.get();
         }
         return null;
     }
 
+
+/*
     @PostMapping(value = "/califications", consumes = "application/json")
     void add(@RequestBody String stringCalification) {
         ObjectMapper om = new ObjectMapper();
@@ -62,5 +65,5 @@ public class CalificationsController {
     @DeleteMapping("/califications/{subject_id}/{dni}/{year}")
     void delete(@PathVariable("dni") int subject_id,@PathVariable("dni") String dni,@PathVariable("year") int year) {
         iCalificationsService.deleteById(new CalificationsPK(subject_id,dni,year));
-    } */
+    }*/
 }

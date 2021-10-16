@@ -31,6 +31,8 @@ public class Califications {
     @JoinColumn(name = "year", referencedColumnName = "year", nullable = false)
     private Years yearsByYear;
 
+
+
     public int getSubjectId() {
         return subjectId;
     }
