@@ -15,10 +15,12 @@ import java.util.List;
 
 public class YearsController {
     @Autowired
-    IYears iYearsController;
+    IYears iYearsService;
+
+
     @GetMapping("/years")
     List<Years> findAll() {
-        return iYearsController.findAll();
+        return iYearsService.findAll();
     }
     
     @PostMapping(value = "/years", consumes = "application/json")
@@ -26,7 +28,7 @@ public class YearsController {
         ObjectMapper om = new ObjectMapper();
         try {
             Years year = om.readValue(stringYear, Years.class);
-            iYearsController.add(year);
+            iYearsService.add(year);
         } catch (JsonMappingException e) {
             e.printStackTrace();
         } catch (JsonProcessingException e) {
@@ -36,6 +38,6 @@ public class YearsController {
 
     @DeleteMapping("/years/{year}")
     void delete(@PathVariable("year") int year) {
-        iYearsController.delete(year);
+        iYearsService.delete(year);
     }
 }
