@@ -40,16 +40,4 @@ public class Subjects {
         return idSubject == subjects.idSubject && Objects.equals(name, subjects.name);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(idSubject, name);
-    }
-
-    public Collection<Califications> getCalificationsByIdSubject() {
-        return calificationsByIdSubject;
-    }
-
-    public void setCalificationsByIdSubject(Collection<Califications> calificationsByIdSubject) {
-        this.calificationsByIdSubject = calificationsByIdSubject;
-    }
 }

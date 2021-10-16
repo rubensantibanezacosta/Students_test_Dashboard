@@ -56,11 +56,4 @@ public class Students {
         return Objects.hash(dni, surname, name);
     }
 
-    public Collection<Califications> getCalificationsByDni() {
-        return calificationsByDni;
-    }
-
-    public void setCalificationsByDni(Collection<Califications> calificationsByDni) {
-        this.calificationsByDni = calificationsByDni;
-    }
 }
