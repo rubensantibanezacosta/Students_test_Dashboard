@@ -3,8 +3,6 @@ package com.ruben.estudiantes.controllers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ruben.estudiantes.entity.models.Califications;
-import com.ruben.estudiantes.entity.models.CalificationsPK;
 import com.ruben.estudiantes.entity.models.services.ICalifications;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-@CrossOrigin(origins = "http://localhost:8100")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/califications")
 @RestController
 public class CalificationsController {

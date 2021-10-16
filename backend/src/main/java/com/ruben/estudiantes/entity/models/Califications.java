@@ -1,12 +1,11 @@
 package com.ruben.estudiantes.entity.models;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @IdClass(CalificationsPK.class)
-public class Califications implements Serializable {
+public class Califications {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "subject_id", nullable = false)
@@ -23,13 +22,13 @@ public class Califications implements Serializable {
     @Column(name = "calification", nullable = false, precision = 0)
     private double calification;
     @ManyToOne
-    @JoinColumn(name = "student_dni", referencedColumnName = "dni", nullable = false, insertable = false, updatable = false)
-    private Students studentsByStudentDni;
-    @ManyToOne
-    @JoinColumn(name = "subject_id", referencedColumnName = "id_subject", nullable = false,  insertable = false, updatable = false)
+    @JoinColumn(name = "subject_id", referencedColumnName = "id_subject", nullable = false)
     private Subjects subjectsBySubjectId;
     @ManyToOne
-    @JoinColumn(name = "year", referencedColumnName = "year", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "student_dni", referencedColumnName = "dni", nullable = false)
+    private Students studentsByStudentDni;
+    @ManyToOne
+    @JoinColumn(name = "year", referencedColumnName = "year", nullable = false)
     private Years yearsByYear;
 
     public int getSubjectId() {
@@ -77,20 +76,20 @@ public class Califications implements Serializable {
         return Objects.hash(subjectId, studentDni, year, calification);
     }
 
-    public Students getStudentsByStudentDni() {
-        return studentsByStudentDni;
-    }
-
-    public void setStudentsByStudentDni(Students studentsByStudentDni) {
-        this.studentsByStudentDni = studentsByStudentDni;
-    }
-
     public Subjects getSubjectsBySubjectId() {
         return subjectsBySubjectId;
     }
 
     public void setSubjectsBySubjectId(Subjects subjectsBySubjectId) {
         this.subjectsBySubjectId = subjectsBySubjectId;
+    }
+
+    public Students getStudentsByStudentDni() {
+        return studentsByStudentDni;
+    }
+
+    public void setStudentsByStudentDni(Students studentsByStudentDni) {
+        this.studentsByStudentDni = studentsByStudentDni;
     }
 
     public Years getYearsByYear() {

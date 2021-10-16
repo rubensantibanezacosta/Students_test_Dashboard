@@ -1,16 +1,25 @@
 package com.ruben.estudiantes.entity.models;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-public class Years  implements Serializable {
+public class Years {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "year", nullable = false)
     private int year;
+    @OneToMany(mappedBy = "yearsByYear")
+    private Collection<Califications> calificationsByYear;
 
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -23,5 +32,13 @@ public class Years  implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(year);
+    }
+
+    public Collection<Califications> getCalificationsByYear() {
+        return calificationsByYear;
+    }
+
+    public void setCalificationsByYear(Collection<Califications> calificationsByYear) {
+        this.calificationsByYear = calificationsByYear;
     }
 }

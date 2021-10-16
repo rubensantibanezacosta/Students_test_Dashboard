@@ -1,11 +1,11 @@
 package com.ruben.estudiantes.entity.models;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-public class Students  implements Serializable {
+public class Students {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "dni", nullable = false, length = 15)
@@ -16,17 +16,16 @@ public class Students  implements Serializable {
     @Basic
     @Column(name = "name", nullable = false, length = 500)
     private String name;
-
-
-
-    public Students() {
-
-    }
+    @OneToMany(mappedBy = "studentsByStudentDni")
+    private Collection<Califications> calificationsByDni;
 
     public String getDni() {
         return dni;
     }
 
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
 
     public String getSurname() {
         return surname;
@@ -55,5 +54,13 @@ public class Students  implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(dni, surname, name);
+    }
+
+    public Collection<Califications> getCalificationsByDni() {
+        return calificationsByDni;
+    }
+
+    public void setCalificationsByDni(Collection<Califications> calificationsByDni) {
+        this.calificationsByDni = calificationsByDni;
     }
 }

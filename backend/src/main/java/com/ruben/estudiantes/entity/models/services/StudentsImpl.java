@@ -1,6 +1,7 @@
 package com.ruben.estudiantes.entity.models.services;
 
-import com.ruben.estudiantes.entity.models.Students;
+import com.ruben.estudiantes.entity.models.dao.IStudentsDao;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,29 +11,29 @@ import java.util.Optional;
 @Service
 public class StudentsImpl implements  IStudents{
     @Autowired
-    IStudents iStudents;
+    IStudentsDao iStudentsDao;
     @Override
     public List<Students> getAll() {
-        return iStudents.getAll();
+        return (List<Students>) iStudentsDao.findAll();
     }
 
     @Override
     public Optional<Students> getOne(String dni) {
-        return iStudents.getOne(dni);
+        return iStudentsDao.findById(dni);
     }
 
     @Override
     public void add(Students student) {
-        iStudents.add(student);
+        iStudentsDao.save(student);
     }
 
     @Override
     public void update(Students newStudent) {
-        Optional<Students> oldStudent =  iStudents.getOne(newStudent.getDni());
+        Optional<Students> oldStudent =  iStudentsDao.findById(newStudent.getDni());
         if(oldStudent.isPresent()){
             oldStudent.get().setName(newStudent.getName());
             oldStudent.get().setSurname(newStudent.getSurname());
-            iStudents.add(oldStudent.get());
+            iStudentsDao.save(oldStudent.get());
         }
     }
 

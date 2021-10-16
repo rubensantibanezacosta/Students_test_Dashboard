@@ -21,14 +21,6 @@ public class CalificationsPK implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int year;
 
-    public CalificationsPK(int subjectId, String studentDni, int year) {
-        this.subjectId = subjectId;
-        this.studentDni = studentDni;
-        this.year = year;
-    }
-
-
-
     public int getSubjectId() {
         return subjectId;
     }

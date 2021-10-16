@@ -1,7 +1,5 @@
 package com.ruben.estudiantes.entity.models.services;
 
-import com.ruben.estudiantes.entity.models.Califications;
-import com.ruben.estudiantes.entity.models.CalificationsPK;
 import org.springframework.stereotype.Service;
 
 

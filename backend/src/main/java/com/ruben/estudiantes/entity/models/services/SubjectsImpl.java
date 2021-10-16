@@ -1,6 +1,7 @@
 package com.ruben.estudiantes.entity.models.services;
 
-import com.ruben.estudiantes.entity.models.Subjects;
+import com.ruben.estudiantes.entity.models.dao.ISubjectsDao;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,30 +10,30 @@ import java.util.Optional;
 
 @Service
 public class SubjectsImpl implements ISubjects{
-   @Autowired ISubjects iSubjects;
+   @Autowired ISubjectsDao iSubjectsDao;
     @Override
     public List<Subjects> getAll() {
-        return iSubjects.getAll();
+        return (List<Subjects>) iSubjectsDao.findAll();
     }
 
     @Override
     public Optional<Subjects> getOne(int subject_id) {
 
-        return iSubjects.getOne(subject_id);
+        return iSubjectsDao.findById(subject_id);
     }
 
     @Override
     public void add(Subjects subject) {
-        iSubjects.add(subject);
+        iSubjectsDao.save(subject);
 
     }
 
     @Override
     public void update(Subjects newSubject) {
-        Optional<Subjects> oldSubject = iSubjects.getOne(newSubject.getIdSubject());
+        Optional<Subjects> oldSubject = iSubjectsDao.findById(newSubject.getIdSubject());
         if(oldSubject.isPresent()) {
             oldSubject.get().setName(newSubject.getName());
-            iSubjects.add(oldSubject.get());
+            iSubjectsDao.save(oldSubject.get());
         }
     }
 
