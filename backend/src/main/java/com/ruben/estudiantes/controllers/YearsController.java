@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-@CrossOrigin(origins = "http://localhost:8100")
 @RestController
+@CrossOrigin(origins="http://localhost:4200")
+
 
 public class YearsController {
     @Autowired
@@ -21,7 +21,7 @@ public class YearsController {
     List<Years> getAll() {
         return iYearsController.getAll();
     }
-
+    
     @PostMapping(value = "/years", consumes = "application/json")
     void add(@RequestBody String stringYear) {
         ObjectMapper om = new ObjectMapper();

@@ -1,0 +1,135 @@
+<div
+  class="
+    jumbotron
+    text-center
+    p-5
+    bg-gradient bg-dark
+    rounded
+    m-5
+    border-3 border border-info
+  "
+>
+  <h1 class="text-info">PANEL DEL ALUMNO</h1>
+</div>
+<div class="container main bg-transparent">
+  <div class="row justify-content-center mb-4">
+    <div class="col-7 mb-5 p-0">
+      <p
+        class="
+          border
+          rounded
+          border-3 border-info
+          text-info
+          w-100
+          text-center
+          m-0
+          bg-transparent
+        "
+      >
+        ALUMNO
+      </p>
+      <select
+        class="
+          form-select
+          border-3 border-info
+          form-select-lg
+          h-100
+          m-0
+          p-0
+          bg-transparent
+          text-light
+        "
+        aria-label=".form-select-lg"
+      >
+        <option selected class="text-light text-center bg-dark">
+          Selecciona alumno...
+        </option>
+        <option
+          class="text-light text-center bg-dark justify-content-between"
+          value="1"
+        >
+          1. | 44334059-H | Ruben | Santibañez Acosta
+        </option>
+        <option
+          class="text-light text-center bg-dark justify-content-between"
+          value="2"
+        >
+          2. | 44334059-H | Ruben | Santibañez Acosta
+        </option>
+      </select>
+    </div>
+    <div class="col-1 mb-5 p-0">
+      <p
+        class="
+          border
+          rounded
+          border-3 border-info
+          text-info
+          w-100
+          text-center
+          m-0
+          bg-transparent
+        "
+      >
+        AÑO
+      </p>
+      <select
+        class="
+          form-select
+          border-3 border-info
+          form-select-lg
+          h-100
+          m-0
+          p-0
+          bg-transparent
+          text-light
+        "
+        aria-label=".form-select-lg"
+      >
+        <option selected class="text-light text-center bg-dark">...</option>
+        <option
+          *ngFor="let year of years"
+          class="text-light text-center bg-dark justify-content-between"
+          value="{{ year.year }}"
+        >
+          {{ year.year }}
+        </option>
+        <option
+          class="text-light text-center bg-dark justify-content-between"
+          value="2020"
+        >
+          2020
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-6 border rounded border-info border-3">
+      <table class="col-12 table table-dark table text-center text-info m-1">
+        <tr>
+          <th class="text-center celda">ASIGNATURA</th>
+          <th class="text-center celda">NOTA</th>
+          <th class="text-center celda botonera"></th>
+          <th class="text-center celda botonera"></th>
+        </tr>
+        <tr>
+          <td class="text-center text-light celda">PGL</td>
+          <td class="text-center text-light celda">9.83</td>
+          <td class="text-center text-light botonera">
+            <div class="circle bg-transparent">Editar</div>
+          </td>
+          <td class="text-center text-light botonera">
+            <div class="circle bg-transparent">Borrar</div>
+          </td>
+        </tr>
+        <tr>
+          <th colspan="4">MEDIA</th>
+        </tr>
+        <tr>
+          <td colspan="4" class="text-center text-light">7.82</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-2 m-2"></div>
+  </div>
+</div>

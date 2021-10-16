@@ -22,10 +22,7 @@ public class CalificationsImpl implements  ICalifications{
         return iCalificationsDao.findById(calificationsPK);
     }
 
-    @Override
-    public List<Califications> getAllByDni(String dni) {
-        return iCalificationsDao.findAllByDni(dni);
-    }
+
 
 
     @Override

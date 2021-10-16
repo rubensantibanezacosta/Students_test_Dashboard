@@ -12,7 +12,6 @@ public interface ICalifications  {
     public List<Califications> getAll();
     public Optional<Califications> getOne(CalificationsPK calificationsPK);
 
-    List<Califications> getAllByDni(String dni);
 
     public void add(Califications califications);
     public void update(Califications califications);

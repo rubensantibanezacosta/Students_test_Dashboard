@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    background-image: linear-gradient(to bottom, #161615, #1c1c1a, #212220, #272825, #2d2e2b)!important; 
+}
+body{
+    background-color: transparent !important;
+    background-image: linear-gradient(to bottom, #161615, #1c1c1a, #212220, #272825, #2d2e2b)!important;    
+    min-height: 100vh ;
+    min-width: 100vw ;
+    position: absolute ;
+    margin: 0 ;
+    padding: 0 ;
+}
