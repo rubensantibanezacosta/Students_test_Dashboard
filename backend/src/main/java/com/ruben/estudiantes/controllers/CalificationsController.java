@@ -3,6 +3,7 @@ package com.ruben.estudiantes.controllers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ruben.estudiantes.entity.models.Califications;
 import com.ruben.estudiantes.entity.models.services.ICalifications;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,12 +16,12 @@ import java.util.Optional;
 @RequestMapping(value = "/califications")
 @RestController
 public class CalificationsController {
-  @Autowired
+/*   @Autowired
     ICalifications iCalificationsService;
 
     @GetMapping("/califications")
     List<Califications> getAll() {
-        return iCalificationsService.getAll();
+        return iCalificationsServiceDao.findAll();
     }
 
     @GetMapping("/califications/{subject_id}/{dni}/{year}")
@@ -61,5 +62,5 @@ public class CalificationsController {
     @DeleteMapping("/califications/{subject_id}/{dni}/{year}")
     void delete(@PathVariable("dni") int subject_id,@PathVariable("dni") String dni,@PathVariable("year") int year) {
         iCalificationsService.deleteById(new CalificationsPK(subject_id,dni,year));
-    }
+    } */
 }

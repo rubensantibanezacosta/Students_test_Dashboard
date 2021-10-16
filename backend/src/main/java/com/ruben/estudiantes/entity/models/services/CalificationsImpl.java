@@ -1,6 +1,6 @@
 package com.ruben.estudiantes.entity.models.services;
 
-import com.ruben.estudiantes.entity.models.dao.ICalificationsDao;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Service
 public class CalificationsImpl implements  ICalifications{
-    @Autowired ICalificationsDao iCalificationsDao;
+/*     @Autowired ICalificationsDao iCalificationsDao;
     @Override
     public List<Califications> getAll() {
         return (List<Califications>) iCalificationsDao.findAll();
@@ -43,5 +43,5 @@ public class CalificationsImpl implements  ICalifications{
     public void deleteById (CalificationsPK calificationPK) {
         iCalificationsDao.deleteById(calificationPK);
     }
-
+ */
 }

@@ -1,5 +1,6 @@
 package com.ruben.estudiantes.entity.models.services;
 
+import com.ruben.estudiantes.entity.models.Subjects;
 import com.ruben.estudiantes.entity.models.dao.ISubjectsDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,6 @@ public class SubjectsImpl implements ISubjects{
 
     @Override
     public void delete(int subject_id) {
-        iSubjects.delete(subject_id);
+        iSubjectsDao.deleteById(subject_id);
     }
 }

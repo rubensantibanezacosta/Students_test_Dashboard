@@ -1,6 +1,6 @@
 package com.ruben.estudiantes.entity.models.services;
 
-
+import com.ruben.estudiantes.entity.models.Years;
 import java.util.List;
 
 public interface IYears {
