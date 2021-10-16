@@ -10,8 +10,7 @@ public class Years {
     @Id
     @Column(name = "year", nullable = false)
     private int year;
-    @OneToMany(mappedBy = "yearsByYear")
-    private Collection<Califications> calificationsByYear;
+
 
     public int getYear() {
         return year;
@@ -21,24 +20,5 @@ public class Years {
         this.year = year;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Years years = (Years) o;
-        return year == years.year;
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(year);
-    }
-
-    public Collection<Califications> getCalificationsByYear() {
-        return calificationsByYear;
-    }
-
-    public void setCalificationsByYear(Collection<Califications> calificationsByYear) {
-        this.calificationsByYear = calificationsByYear;
-    }
 }
