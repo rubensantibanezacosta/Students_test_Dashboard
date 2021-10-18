@@ -8,20 +8,18 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class CalificationsPK implements Serializable {
-    @Column(name = "subject_id", nullable = false , insertable=false, updatable=false)
+    @Column(name = "subjectId", nullable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int subjectId;
-    @Column(name = "student_dni", nullable = false, length = 15, insertable=false, updatable=false)
+    @Column(name = "studentDni", nullable = false, length = 15)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String studentDni;
-    @Column(name = "year", nullable = false , insertable=false, updatable=false)
+    @Column(name = "year", nullable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int year;
-
-
 
     public int getSubjectId() {
         return subjectId;

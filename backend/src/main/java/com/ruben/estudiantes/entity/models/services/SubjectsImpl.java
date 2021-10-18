@@ -18,9 +18,9 @@ public class SubjectsImpl implements ISubjects{
     }
 
     @Override
-    public Optional<Subjects> getOne(int subject_id) {
+    public Optional<Subjects> getOne(int subjectId) {
 
-        return iSubjectsDao.findById(subject_id);
+        return iSubjectsDao.findById(subjectId);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class SubjectsImpl implements ISubjects{
 
     @Override
     public void update(Subjects newSubject) {
-        Optional<Subjects> oldSubject = iSubjectsDao.findById(newSubject.getIdSubject());
+        Optional<Subjects> oldSubject = iSubjectsDao.findById(newSubject.getSubjectId());
         if(oldSubject.isPresent()) {
             oldSubject.get().setName(newSubject.getName());
             iSubjectsDao.save(oldSubject.get());
@@ -39,7 +39,7 @@ public class SubjectsImpl implements ISubjects{
     }
 
     @Override
-    public void delete(int subject_id) {
-        iSubjectsDao.deleteById(subject_id);
+    public void delete(int subjectId) {
+        iSubjectsDao.deleteById(subjectId);
     }
 }

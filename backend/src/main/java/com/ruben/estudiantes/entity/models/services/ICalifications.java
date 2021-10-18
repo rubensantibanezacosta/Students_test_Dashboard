@@ -8,6 +8,6 @@ import java.util.Optional;
 
 public interface ICalifications  {
 
-    Optional<Califications> findByStudentDniAndSubjectIdAndYear(String studentDni, int subjectId, int year);
+    Optional<Califications> findByStudentDniAndSubjectIdAAndYear(String studentDni, int subjectId, int year);
 
 }

@@ -23,9 +23,9 @@ public class SubjectsController {
         return iSubjectsService.getAll();
     }
 
-    @GetMapping("/subjects/{subject_id}")
-    Subjects getOne(@PathVariable("subject_id") int subject_id) {
-        Optional<Subjects> subject = iSubjectsService.getOne(subject_id);
+    @GetMapping("/subjects/{subjectId}")
+    Subjects getOne(@PathVariable("subjectId") int subjectId) {
+        Optional<Subjects> subject = iSubjectsService.getOne(subjectId);
         if (subject.isPresent()) {
             return subject.get();
         }
@@ -58,9 +58,9 @@ public class SubjectsController {
         }
     }
 
-    @DeleteMapping("/subjects/{subject_id}")
-    void delete(@PathVariable("subject_id") int subject_id) {
-        iSubjectsService.delete(subject_id);
+    @DeleteMapping("/subjects/{subjectId}")
+    void delete(@PathVariable("subjectId") int subjectId) {
+        iSubjectsService.delete(subjectId);
     }
 
 }

@@ -8,20 +8,19 @@ import java.util.Objects;
 public class Subjects {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id_subject", nullable = false)
-    private int idSubject;
+    @Column(name = "subjectId", nullable = false)
+    private int subjectId;
     @Basic
     @Column(name = "name", nullable = false, length = 500)
     private String name;
-    @OneToMany(mappedBy = "subjectsBySubjectId")
-    private Collection<Califications> calificationsByIdSubject;
 
-    public int getIdSubject() {
-        return idSubject;
+
+    public int getSubjectId() {
+        return subjectId;
     }
 
-    public void setIdSubject(int idSubject) {
-        this.idSubject = idSubject;
+    public void setSubjectId(int subjectId) {
+        this.subjectId = subjectId;
     }
 
     public String getName() {
@@ -37,7 +36,7 @@ public class Subjects {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Subjects subjects = (Subjects) o;
-        return idSubject == subjects.idSubject && Objects.equals(name, subjects.name);
+        return subjectId == subjects.subjectId && Objects.equals(name, subjects.name);
     }
 
 }

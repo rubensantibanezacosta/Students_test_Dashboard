@@ -16,7 +16,7 @@ public class CalificationsImpl implements  ICalifications{
 
 
     @Override
-    public Optional<Califications> findByStudentDniAndSubjectIdAndYear(String studentDni, int subjectId, int year) {
-        return iCalificationsDao.findByStudentDniAndSubjectIdAAndYear(studentDni, subjectId, year);
+    public Optional<Califications> findByStudentDniAndSubjectIdAAndYear(String studentDni, int subjectId, int year) {
+        return iCalificationsDao.findByStudentDniAndSubjectIdAndYear(studentDni, subjectId, year);
     }
 }

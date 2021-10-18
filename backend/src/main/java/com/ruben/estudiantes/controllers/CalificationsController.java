@@ -1,69 +1,56 @@
 package com.ruben.estudiantes.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ruben.estudiantes.entity.models.Califications;
-import com.ruben.estudiantes.entity.models.dao.ICalificationsDao;
-import com.ruben.estudiantes.entity.models.services.CalificationsImpl;
+
 import com.ruben.estudiantes.entity.models.services.ICalifications;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.repository.CrudRepository;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(value = "/califications")
 @RestController
 public class CalificationsController {
 
-     @Autowired
-   private ICalifications iCalification;
+    @Autowired
+    private ICalifications iCalification;
 
+    @GetMapping("/califications/{dni}/{subjectId}/{year}")
+    Califications getValue(@PathVariable("dni") String dni, @PathVariable("subjectId") int subjectId,
+            @PathVariable("year") int year) {
+        System.out.println(dni);
+        System.out.println(subjectId);
+        System.out.println(year);
 
-    @GetMapping("/califications/{dni}/{subject_id}/{year}")
-    Califications getValue(String dni, int subjectId, int year) {
-        Optional<Califications> calification=iCalification.findByStudentDniAndSubjectIdAndYear(dni, subjectId, year);
+        Optional<Califications> calification = iCalification.findByStudentDniAndSubjectIdAAndYear(dni, subjectId, year);
         if (calification.isPresent()) {
             return calification.get();
         }
         return null;
     }
 
-
-/*
-    @PostMapping(value = "/califications", consumes = "application/json")
-    void add(@RequestBody String stringCalification) {
-        ObjectMapper om = new ObjectMapper();
-        try {
-            Califications calification = om.readValue(stringCalification, Califications.class);
-            iCalificationsService.add(calification);
-        } catch (JsonMappingException e) {
-            e.printStackTrace();
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @PutMapping(value = "/califications", consumes = "application/json")
-    void update(@RequestBody String stringCalification) {
-        ObjectMapper om = new ObjectMapper();
-        try {
-            Califications newCalification = om.readValue(stringCalification, Califications.class);
-            iCalificationsService.update(newCalification);
-        } catch (JsonMappingException e) {
-            e.printStackTrace();
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @DeleteMapping("/califications/{subject_id}/{dni}/{year}")
-    void delete(@PathVariable("dni") int subject_id,@PathVariable("dni") String dni,@PathVariable("year") int year) {
-        iCalificationsService.deleteById(new CalificationsPK(subject_id,dni,year));
-    }*/
+    /*
+     * @PostMapping(value = "/califications", consumes = "application/json") void
+     * add(@RequestBody String stringCalification) { ObjectMapper om = new
+     * ObjectMapper(); try { Califications calification =
+     * om.readValue(stringCalification, Califications.class);
+     * iCalificationsService.add(calification); } catch (JsonMappingException e) {
+     * e.printStackTrace(); } catch (JsonProcessingException e) {
+     * e.printStackTrace(); } }
+     * 
+     * @PutMapping(value = "/califications", consumes = "application/json") void
+     * update(@RequestBody String stringCalification) { ObjectMapper om = new
+     * ObjectMapper(); try { Califications newCalification =
+     * om.readValue(stringCalification, Califications.class);
+     * iCalificationsService.update(newCalification); } catch (JsonMappingException
+     * e) { e.printStackTrace(); } catch (JsonProcessingException e) {
+     * e.printStackTrace(); } }
+     * 
+     * @DeleteMapping("/califications/{subjectId}/{dni}/{year}") void
+     * delete(@PathVariable("dni") int subjectId,@PathVariable("dni") String
+     * dni,@PathVariable("year") int year) { iCalificationsService.deleteById(new
+     * CalificationsPK(subjectId,dni,year)); }
+     */
 }
