@@ -8,43 +8,43 @@ import java.util.Objects;
 public class Califications {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "subjectId", nullable = false)
-    private int subjectId;
+    @Column(name = "subjectid", nullable = false, insertable = false, updatable = false)
+    private int subjectid;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "studentDni", nullable = false, length = 15)
-    private String studentDni;
+    @Column(name = "studentdni", nullable = false, length = 15, insertable = false, updatable = false)
+    private String studentdni;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "year", nullable = false)
+    @Column(name = "year", nullable = false, insertable = false, updatable = false)
     private int year;
     @Basic
     @Column(name = "calification", nullable = false, precision = 0)
     private double calification;
     @ManyToOne
-    @JoinColumn(name = "subjectId", referencedColumnName = "subjectId", nullable = false)
-    private Subjects subjectsBySubjectId;
+    @JoinColumn(name = "subjectid", referencedColumnName = "idsubject", nullable = false)
+    private Subjects subjectsBySubjectid;
     @ManyToOne
-    @JoinColumn(name = "studentDni", referencedColumnName = "dni", nullable = false)
-    private Students studentsByStudentDni;
+    @JoinColumn(name = "studentdni", referencedColumnName = "dni", nullable = false)
+    private Students studentsByStudentdni;
     @ManyToOne
     @JoinColumn(name = "year", referencedColumnName = "year", nullable = false)
     private Years yearsByYear;
 
-    public int getSubjectId() {
-        return subjectId;
+    public int getSubjectid() {
+        return subjectid;
     }
 
-    public void setSubjectId(int subjectId) {
-        this.subjectId = subjectId;
+    public void setSubjectid(int subjectid) {
+        this.subjectid = subjectid;
     }
 
-    public String getStudentDni() {
-        return studentDni;
+    public String getStudentdni() {
+        return studentdni;
     }
 
-    public void setStudentDni(String studentDni) {
-        this.studentDni = studentDni;
+    public void setStudentdni(String studentdni) {
+        this.studentdni = studentdni;
     }
 
     public int getYear() {
@@ -68,28 +68,28 @@ public class Califications {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Califications that = (Califications) o;
-        return subjectId == that.subjectId && year == that.year && Double.compare(that.calification, calification) == 0 && Objects.equals(studentDni, that.studentDni);
+        return subjectid == that.subjectid && year == that.year && Double.compare(that.calification, calification) == 0 && Objects.equals(studentdni, that.studentdni);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(subjectId, studentDni, year, calification);
+        return Objects.hash(subjectid, studentdni, year, calification);
     }
 
-    public Subjects getSubjectsBySubjectId() {
-        return subjectsBySubjectId;
+    public Subjects getSubjectsBySubjectid() {
+        return subjectsBySubjectid;
     }
 
-    public void setSubjectsBySubjectId(Subjects subjectsBySubjectId) {
-        this.subjectsBySubjectId = subjectsBySubjectId;
+    public void setSubjectsBySubjectid(Subjects subjectsBySubjectid) {
+        this.subjectsBySubjectid = subjectsBySubjectid;
     }
 
-    public Students getStudentsByStudentDni() {
-        return studentsByStudentDni;
+    public Students getStudentsByStudentdni() {
+        return studentsByStudentdni;
     }
 
-    public void setStudentsByStudentDni(Students studentsByStudentDni) {
-        this.studentsByStudentDni = studentsByStudentDni;
+    public void setStudentsByStudentdni(Students studentsByStudentdni) {
+        this.studentsByStudentdni = studentsByStudentdni;
     }
 
     public Years getYearsByYear() {

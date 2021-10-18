@@ -8,33 +8,33 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class CalificationsPK implements Serializable {
-    @Column(name = "subjectId", nullable = false)
+    @Column(name = "subjectid", nullable = false, insertable = false, updatable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int subjectId;
-    @Column(name = "studentDni", nullable = false, length = 15)
+    private int subjectid;
+    @Column(name = "studentdni", nullable = false, length = 15, insertable = false, updatable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String studentDni;
-    @Column(name = "year", nullable = false)
+    private String studentdni;
+    @Column(name = "year", nullable = false, insertable = false, updatable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int year;
 
-    public int getSubjectId() {
-        return subjectId;
+    public int getSubjectid() {
+        return subjectid;
     }
 
-    public void setSubjectId(int subjectId) {
-        this.subjectId = subjectId;
+    public void setSubjectid(int subjectid) {
+        this.subjectid = subjectid;
     }
 
-    public String getStudentDni() {
-        return studentDni;
+    public String getStudentdni() {
+        return studentdni;
     }
 
-    public void setStudentDni(String studentDni) {
-        this.studentDni = studentDni;
+    public void setStudentdni(String studentdni) {
+        this.studentdni = studentdni;
     }
 
     public int getYear() {
@@ -50,11 +50,11 @@ public class CalificationsPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CalificationsPK that = (CalificationsPK) o;
-        return subjectId == that.subjectId && year == that.year && Objects.equals(studentDni, that.studentDni);
+        return subjectid == that.subjectid && year == that.year && Objects.equals(studentdni, that.studentdni);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(subjectId, studentDni, year);
+        return Objects.hash(subjectid, studentdni, year);
     }
 }

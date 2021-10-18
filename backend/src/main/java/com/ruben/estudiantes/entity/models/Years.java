@@ -10,6 +10,8 @@ public class Years {
     @Id
     @Column(name = "year", nullable = false)
     private int year;
+    @OneToMany(mappedBy = "yearsByYear")
+    private Collection<Califications> calificationsByYear;
 
     public int getYear() {
         return year;
@@ -26,5 +28,6 @@ public class Years {
         Years years = (Years) o;
         return year == years.year;
     }
+
 
 }

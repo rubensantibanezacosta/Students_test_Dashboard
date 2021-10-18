@@ -31,7 +31,7 @@ public class SubjectsImpl implements ISubjects{
 
     @Override
     public void update(Subjects newSubject) {
-        Optional<Subjects> oldSubject = iSubjectsDao.findById(newSubject.getSubjectId());
+        Optional<Subjects> oldSubject = iSubjectsDao.findById(newSubject.getIdsubject());
         if(oldSubject.isPresent()) {
             oldSubject.get().setName(newSubject.getName());
             iSubjectsDao.save(oldSubject.get());

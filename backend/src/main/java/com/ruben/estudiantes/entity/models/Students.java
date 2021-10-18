@@ -16,7 +16,8 @@ public class Students {
     @Basic
     @Column(name = "name", nullable = false, length = 500)
     private String name;
-
+    @OneToMany(mappedBy = "studentsByStudentdni")
+    private Collection<Califications> calificationsByDni;
 
     public String getDni() {
         return dni;
@@ -49,5 +50,6 @@ public class Students {
         Students students = (Students) o;
         return Objects.equals(dni, students.dni) && Objects.equals(surname, students.surname) && Objects.equals(name, students.name);
     }
+
 
 }
