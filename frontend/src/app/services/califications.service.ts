@@ -17,9 +17,13 @@ getAllCalificationsByDni(dni:string, year:number):Observable<Califications[]>{
   return this.httpClient.get<Califications[]>(this.endpoint+"/"+dni+"/"+year);
 }
 deleteCalification(dni:string, subjectId:number, year:number){
-  return this.httpClient.delete(this.endpoint+"/"+dni+"/"+subjectId+"/"+year);
+  
+  return this.httpClient.delete(this.endpoint+"/"+dni+"/"+subjectId+"/"+year).subscribe(res=>console.log(res));
 }
 addCalification(calification:Califications){
-  return this.httpClient.post(this.endpoint, JSON.stringify(calification),this.httpOptions);
+  console.log(calification);
+  return this.httpClient.post(this.endpoint, JSON.stringify(calification),this.httpOptions).subscribe((data)=>{
+    console.log(data);
+  });
 }
 }

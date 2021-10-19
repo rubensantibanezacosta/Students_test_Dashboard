@@ -125,7 +125,7 @@ export class HomeComponent implements OnInit {
       const calification:Califications=calificationForm.value;
       calification.studentdni=this.selectedStudentDni;
       calification.subjectid=this.selectedSubjectidToSend;
-      calification.year=this.selectedYearNumber;
+      calification.years=this.selectedYearNumber;
       this.calificationsService.addCalification(calification); 
       this.loadInfo();
     }
