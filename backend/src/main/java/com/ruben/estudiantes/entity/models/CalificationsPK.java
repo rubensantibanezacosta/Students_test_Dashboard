@@ -16,10 +16,10 @@ public class CalificationsPK implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String studentdni;
-    @Column(name = "year", nullable = false, insertable = false, updatable = false)
+    @Column(name = "years", nullable = false, insertable = false, updatable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int year;
+    public int years;
 
     public int getSubjectid() {
         return subjectid;
@@ -37,12 +37,12 @@ public class CalificationsPK implements Serializable {
         this.studentdni = studentdni;
     }
 
-    public int getYear() {
-        return year;
+    public int getYears() {
+        return years;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setYears(int years) {
+        this.years = years;
     }
 
     @Override
@@ -50,11 +50,14 @@ public class CalificationsPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CalificationsPK that = (CalificationsPK) o;
-        return subjectid == that.subjectid && year == that.year && Objects.equals(studentdni, that.studentdni);
+        return subjectid == that.subjectid && years == that.years && Objects.equals(studentdni, that.studentdni);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(subjectid, studentdni, year);
+        return Objects.hash(subjectid, studentdni, years);
+    }
+
+    public CalificationsPK() {
     }
 }

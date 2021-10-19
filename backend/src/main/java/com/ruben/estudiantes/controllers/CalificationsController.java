@@ -5,8 +5,12 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ruben.estudiantes.entity.models.Califications;
 import com.ruben.estudiantes.entity.models.services.CalificationsImpl;
+import com.ruben.estudiantes.entity.models.services.IStudents;
+import com.ruben.estudiantes.entity.models.services.ISubjects;
+import com.ruben.estudiantes.entity.models.services.IYears;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,11 +23,12 @@ public class CalificationsController {
     @Autowired
     CalificationsImpl iCalificationService;
 
+
     @GetMapping("/califications/{dni}/{year}/{subjectId}")
     Califications getValue(@PathVariable("dni") String dni, @PathVariable("subjectId") int subjectId,
             @PathVariable("year") int year) {
 
-        Optional<Califications> calification = iCalificationService.findByStudentDniAndSubjectIdAAndYear(dni, subjectId, year);
+        Optional<Califications> calification = iCalificationService.findByStudentDniAndSubjectIdAAndYears(dni, subjectId, year);
         if (calification.isPresent()) {
             return calification.get();
         }
@@ -33,7 +38,7 @@ public class CalificationsController {
     @GetMapping("/califications/{dni}/{year}")
     List<Califications> getValue(@PathVariable("dni") String dni, @PathVariable("year") int year) {
 
-        return iCalificationService.findAllByStudentDniAndYear(dni, year);
+        return iCalificationService.findAllByStudentDniAndYears(dni, year);
 
     }
 
@@ -43,7 +48,7 @@ public class CalificationsController {
         System.out.println(dni + " | " + year + " | " + subjectId);
         iCalificationService.deleteCalification(dni, subjectId, year);
     }
-
+@Transactional
     @PostMapping(value = "/califications", consumes = "application/json")
     void add(@RequestBody String stringCalification) {
         System.out.println(stringCalification);

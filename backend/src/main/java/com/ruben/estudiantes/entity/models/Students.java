@@ -1,5 +1,7 @@
 package com.ruben.estudiantes.entity.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
@@ -16,6 +18,7 @@ public class Students {
     @Basic
     @Column(name = "name", nullable = false, length = 500)
     private String name;
+    @JsonIgnore
     @OneToMany(mappedBy = "studentsByStudentdni")
     private Collection<Califications> calificationsByDni;
 
@@ -51,5 +54,10 @@ public class Students {
         return Objects.equals(dni, students.dni) && Objects.equals(surname, students.surname) && Objects.equals(name, students.name);
     }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(dni, surname, name);
+    }
 }
+
+

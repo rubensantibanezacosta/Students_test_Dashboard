@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class YearsImpl implements IYears{
@@ -16,6 +17,11 @@ public class YearsImpl implements IYears{
     @Override
     public List<Years> findAll() {
         return (List<Years>) iyearsDao.findAll();
+    }
+
+    @Override
+    public Optional<Years> getOne(int year) {
+        return iyearsDao.findById(year);
     }
 
     @Override

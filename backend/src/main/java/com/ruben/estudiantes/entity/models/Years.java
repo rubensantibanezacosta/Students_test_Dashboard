@@ -1,15 +1,19 @@
 package com.ruben.estudiantes.entity.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Years {
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "year", nullable = false)
-    private int year;
-    @OneToMany(mappedBy = "yearsByYear")
+    public int year;
+    @JsonIgnore
+    @OneToMany(mappedBy = "yearsByYears")
     private Collection<Califications> calificationsByYear;
 
     public int getYear() {
@@ -28,5 +32,9 @@ public class Years {
         return year == years.year;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(year);
+    }
 
 }

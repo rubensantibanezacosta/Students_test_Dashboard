@@ -1,5 +1,7 @@
 package com.ruben.estudiantes.entity.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
@@ -13,6 +15,7 @@ public class Subjects {
     @Basic
     @Column(name = "name", nullable = false, length = 500)
     private String name;
+    @JsonIgnore
     @OneToMany(mappedBy = "subjectsBySubjectid")
     private Collection<Califications> calificationsByIdsubject;
 
@@ -40,5 +43,16 @@ public class Subjects {
         return idsubject == subjects.idsubject && Objects.equals(name, subjects.name);
     }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(idsubject, name);
+    }
+    @JsonIgnore
+    public Collection<Califications> getCalificationsByIdsubject() {
+        return calificationsByIdsubject;
+    }
+    @JsonIgnore
+    public void setCalificationsByIdsubject(Collection<Califications> calificationsByIdsubject) {
+        this.calificationsByIdsubject = calificationsByIdsubject;
+    }
 }

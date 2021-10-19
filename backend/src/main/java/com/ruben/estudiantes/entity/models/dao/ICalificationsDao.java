@@ -11,9 +11,10 @@ import java.util.Optional;
 
 public interface ICalificationsDao extends CrudRepository <Califications, CalificationsPK> {
 
-   Optional<Califications> findByStudentdniAndSubjectidAndYear(String studentDni, int subjectId, int  year);
-   List<Califications> findAllByStudentdniAndYear(String studentDni, int year);
+   Optional<Califications> findByStudentdniAndSubjectidAndYears(String studentDni, int subjectId, int  year);
+   List<Califications> findAllByStudentdniAndYears(String studentDni, int year);
    @Transactional
-   void deleteCalificationsByStudentdniAndSubjectidAndYear(String studentDni, int subjectId, int  year);
+   void deleteCalificationsByStudentdniAndSubjectidAndYears(String studentDni, int subjectId, int  year);
+
 
 }

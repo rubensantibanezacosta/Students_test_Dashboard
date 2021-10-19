@@ -5,6 +5,7 @@ import com.ruben.estudiantes.entity.models.Califications;
 import com.ruben.estudiantes.entity.models.dao.ICalificationsDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,25 +17,27 @@ public class CalificationsImpl implements  ICalifications {
 
 
     @Override
-    public Optional<Califications> findByStudentDniAndSubjectIdAAndYear(String studentDni, int subjectId, int year) {
-        return iCalificationsDao.findByStudentdniAndSubjectidAndYear(studentDni, subjectId, year);
+    public Optional<Califications> findByStudentDniAndSubjectIdAAndYears(String studentDni, int subjectId, int year) {
+        return iCalificationsDao.findByStudentdniAndSubjectidAndYears(studentDni, subjectId, year);
     }
 
     @Override
-    public List<Califications> findAllByStudentDniAndYear(String studentDni, int year) {
-        return iCalificationsDao.findAllByStudentdniAndYear(studentDni, year);
+    public List<Califications> findAllByStudentDniAndYears(String studentDni, int year) {
+        return iCalificationsDao.findAllByStudentdniAndYears(studentDni, year);
 
 
     }
 
     @Override
-    public void deleteCalification(String studentDni, int subjectId, int year) {
-        iCalificationsDao.deleteCalificationsByStudentdniAndSubjectidAndYear(studentDni,subjectId,year);
+    public void deleteCalification(String studentDni, int subjectId, int years) {
+        iCalificationsDao.deleteCalificationsByStudentdniAndSubjectidAndYears(studentDni,subjectId,years);
     }
 
     @Override
-    public void add(Califications newCalification) {
-        iCalificationsDao.save(newCalification);
+    @Transactional
+    public void add(Califications calification) {
+
+        iCalificationsDao.save(calification);
     }
 
 }

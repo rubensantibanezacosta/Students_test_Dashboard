@@ -8,8 +8,8 @@ import java.util.Optional;
 
 public interface ICalifications  {
 
-    Optional<Califications> findByStudentDniAndSubjectIdAAndYear(String studentDni, int subjectId, int year);
-    List<Califications> findAllByStudentDniAndYear(String studentDni, int year);
+    Optional<Califications> findByStudentDniAndSubjectIdAAndYears(String studentDni, int subjectId, int year);
+    List<Califications> findAllByStudentDniAndYears(String studentDni, int year);
 
     void deleteCalification(String studentDni, int subjectId, int year);
 
