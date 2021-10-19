@@ -2,11 +2,10 @@ package com.ruben.estudiantes.entity.models;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.Objects;
 
 @Entity
 public class Years {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
     @Column(name = "year", nullable = false)
     private int year;

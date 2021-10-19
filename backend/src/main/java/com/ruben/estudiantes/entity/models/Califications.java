@@ -8,18 +8,18 @@ import java.util.Objects;
 public class Califications {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "subjectid", nullable = false, insertable = false, updatable = false)
+    @Column(name = "subjectid", nullable = false, insertable = true, updatable = true)
     private int subjectid;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "studentdni", nullable = false, length = 15, insertable = false, updatable = false)
+    @Column(name = "studentdni", nullable = false, length = 15, insertable = true, updatable = true)
     private String studentdni;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "year", nullable = false, insertable = false, updatable = false)
+    @Column(name = "year", nullable = false, insertable = true, updatable = true)
     private int year;
     @Basic
-    @Column(name = "calification", nullable = false, precision = 0)
+    @Column(name = "calification", nullable = false, precision = 0, insertable = true, updatable = true)
     private double calification;
     @ManyToOne
     @JoinColumn(name = "subjectid", referencedColumnName = "idsubject", nullable = false)

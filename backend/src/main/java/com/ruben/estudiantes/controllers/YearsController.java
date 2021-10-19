@@ -23,20 +23,31 @@ public class YearsController {
     }
 
     @PostMapping(value = "/years", consumes = "application/json")
+
     void add(@RequestBody String stringYear) {
+
         ObjectMapper om = new ObjectMapper();
         try {
             Years year = om.readValue(stringYear, Years.class);
             iYearsService.add(year);
+
         } catch (JsonMappingException e) {
             e.printStackTrace();
+            System.out.println("Error");
+
         } catch (JsonProcessingException e) {
+            System.out.println("Error");
             e.printStackTrace();
+
         }
     }
 
     @DeleteMapping("/years/{year}")
     void delete(@PathVariable("year") int year) {
-        iYearsService.delete(year);
+        try {
+            iYearsService.delete(Integer.valueOf(year));
+        } catch (Exception e) {
+        }
+
     }
 }

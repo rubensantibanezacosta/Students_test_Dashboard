@@ -1,5 +1,5 @@
 export class Subjects {
-    id_subject:number | undefined;
+    idsubject:number | undefined;
     name="";
     
 constructor(){

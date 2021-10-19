@@ -10,7 +10,7 @@ import { Year } from '../classes/year';
 })
 export class YearsService {
  
-  httpOptions = { headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' }) }
+  httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'}) }
   
   endpoint: string = "http://localhost:8080/years";
   constructor(private httpClient: HttpClient) { }
@@ -20,10 +20,13 @@ export class YearsService {
   }
 
   addYear(year: Year): void {
-    this.httpClient.post(this.endpoint, JSON.stringify(year), this.httpOptions)
+    console.log(year);
+    this.httpClient.post(this.endpoint, {"year":year.year}, this.httpOptions).subscribe(()=>{window.location.reload()})
   }
 
-  deleteYear(year: Year): void {
-    this.httpClient.delete(this.endpoint + "/" + JSON.stringify(year), this.httpOptions)
+  deleteYear(year: number): void {
+    this.httpClient.delete(this.endpoint + "/" + year, this.httpOptions).subscribe((res)=>{
+      console.log(res);
+      window.location.reload()})
   }
 }
