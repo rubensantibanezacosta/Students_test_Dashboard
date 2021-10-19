@@ -41,11 +41,11 @@ public class CalificationsController {
         return iCalificationService.findAllByStudentDniAndYears(dni, year);
 
     }
-
-    @DeleteMapping(value = "/califications/{dni}/{subjectId}/{year}")
+@Transactional
+    @DeleteMapping(value = "/califications/{dni}/{year}/{subjectId}")
     void delete(@PathVariable("dni") String dni, @PathVariable("year") int year,
             @PathVariable("subjectId") int subjectId) {
-        System.out.println(dni + " | " + year + " | " + subjectId);
+
         iCalificationService.deleteCalification(dni, subjectId, year);
     }
 @Transactional
