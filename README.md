@@ -38,6 +38,9 @@ Clona el repositorio `git clone https://github.com/rubensantibanezacosta/Student
     - `npm run w:launch` para lanzar la aplicación si ya tienes los paquetes instalados
 
 
+    ***Abrir el navegador en  http://localhost:4200/*** tras la espera.
+
+
 ### LINUX
 
 - En la raiz del proyecto, ejecuta los scripts:
@@ -53,7 +56,7 @@ Clona el repositorio `git clone https://github.com/rubensantibanezacosta/Student
     - `npm run start` para lanzar la aplicación si ya tienes los paquetes instalados
 
 
-
+    ***Abrir el navegador en  http://localhost:4200/*** tras la espera.
 
 ## Uso 📦
 
