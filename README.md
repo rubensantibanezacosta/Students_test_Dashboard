@@ -104,8 +104,8 @@ La interfaz es bastante intuitiva y sencilla:
 ## Agradecimientos ✒️
 
 
-* **Tiburcio Cruz Ravelo** - *Asesoría técnica* -  [tcurav](https://github.com/tcrurav)
-* **Gemma Alemán Santana** - *Asesoría técnica* 
+* **Tiburcio Cruz Ravelo** - *Docente del Intituto IES El Rincón* -  [tcurav](https://github.com/tcrurav)
+* **Gemma Alemán Santana** - *Docente del Intituto IES El Rincón* 
 
 
 ---
