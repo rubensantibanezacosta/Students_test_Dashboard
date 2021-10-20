@@ -12,7 +12,7 @@
     "tab:mvn-run": "ttab -d backend/ mvn spring-boot:run ",
     "update-packages": "npm run tab:npm-i && npm run tab:mvn-i",
     "start": "run-s tab:serve tab:mvn-run",
-    "update-launch": "npm run update-packages| sleep 40; npm run start"
+    "update-launch": "npm run update-packages| sleep 120; npm run start"
   },
   "repository": {
     "type": "git",
