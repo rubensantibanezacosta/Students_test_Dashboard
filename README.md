@@ -29,11 +29,11 @@ Clona el repositorio `git clone https://github.com/rubensantibanezacosta/Student
 
 - En la raiz del proyecto, ejecuta los scripts:
 
-    ***Para instalar paquetes***
+    ###### *Para instalar paquetes*
       
     - `npm run w:install` 
     
-    ***Para lanzar el proyecto teniendo los paquetes instalados***
+    ###### *Para lanzar el proyecto teniendo los paquetes instalados*
     
     - `npm run w:launch` para lanzar la aplicación si ya tienes los paquetes instalados
 
