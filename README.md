@@ -19,7 +19,7 @@ Clona el repositorio `git clone https://github.com/rubensantibanezacosta/Student
 - **JDK 11** ***https://www.oracle.com/es/java/technologies/javase/jdk11-archive-downloads.html***
 
 
-## Instalación 🔧
+## Instalación 🔧 *2 minutos aproximadamente*
 
 - Importa el archivo **Estudiantes.sql** a tu servidor MySQL. Ruta `backend/Estudiantes.sql` 
 
