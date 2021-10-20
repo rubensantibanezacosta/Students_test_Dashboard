@@ -99,10 +99,13 @@ La interfaz es bastante intuitiva y sencilla:
 
 
 * **Ruben Santibañez Acosta** - *Desarrollo y documentación* -  [rubensantibanezacosta](https://github.com/rubensantibanezacosta)
+
+
+## Agradecimientos ✒️
+
+
 * **Tiburcio Cruz Ravelo** - *Asesoría técnica* -  [tcurav](https://github.com/tcrurav)
 * **Gemma Alemán Santana** - *Asesoría técnica* 
-
-
 
 
 ---
