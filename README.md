@@ -101,11 +101,11 @@ La interfaz es bastante intuitiva y sencilla:
 * **Ruben Santibañez Acosta** - *Desarrollo y documentación* -  [rubensantibanezacosta](https://github.com/rubensantibanezacosta)
 
 
-## Agradecimientos ✒️
+## Agradecimientos :wave:
 
 
-* **Tiburcio Cruz Ravelo** - *Docente del Intituto IES El Rincón* -  [tcurav](https://github.com/tcrurav)
-* **Gemma Alemán Santana** - *Docente del Intituto IES El Rincón* 
+* **Tiburcio Cruz Ravelo** - *Docente del Instituto IES El Rincón* -  [tcurav](https://github.com/tcrurav)
+* **Gemma Alemán Santana** - *Docente del Instituto IES El Rincón* 
 
 
 ---
