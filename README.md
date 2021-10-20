@@ -27,7 +27,7 @@ Clona el repositorio `git clone https://github.com/rubensantibanezacosta/Student
 
 ### WINDOWS
 
-- En la raiz del proyecto, abre una terminal ejecuta los scripts:
+- En la raiz del proyecto, abre una terminal y ejecuta los scripts:
 
     ###### *Para instalar paquetes*
       
@@ -43,7 +43,7 @@ Clona el repositorio `git clone https://github.com/rubensantibanezacosta/Student
 
 ### LINUX
 
-- En la raiz del proyecto, abre una terminal ejecuta los scripts:
+- En la raiz del proyecto, abre una terminal y ejecuta los scripts:
 
     ***Para nstalar paquetes y lanzar el proyecto***
       
