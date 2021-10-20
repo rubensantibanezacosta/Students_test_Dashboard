@@ -85,7 +85,7 @@ La interfaz es bastante intuitiva y sencilla:
 * [Maven 3.6.3](https://maven.apache.org) - *Manejador de dependencias*
 * [Spring boot 2.5.5](https://spring.io/projects/spring-boot) - *Framework usado para el Backend*
 * [Hibernate](https://hibernate.org) - *Framework integrado en Spring boot*
-     - *Menciones*
+     - *Comentarios*
         - > Mapeado autómatico de base de datos apoyado en el IDE
         - > CrudRepository Dao, con metodos Dao personalizados
 
