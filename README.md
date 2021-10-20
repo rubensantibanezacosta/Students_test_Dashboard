@@ -8,15 +8,15 @@ Clona el repositorio `git clone https://github.com/rubensantibanezacosta/Student
 
 ## Pre-requisitos 📋
 
-- Sistema Operativo Windows o Linux
+- Sistema Operativo **Windows** o **Linux**
 
-- Node.js y NPM  ***https://nodejs.org/es/***
+- **Node.js** y **NPM**  ***https://nodejs.org/es/***
 
-- Maven (En Windows, recuerda configurar tu variable '"MAVEN_HOME"' en el path) ***https://maven.apache.org/download.cgi***
+- **Maven** (*En Windows, recuerda configurar tu variable __"MAVEN_HOME"__ en el path*) ***https://maven.apache.org/download.cgi***
 
-- MySQL or MariaDB ***https://www.mysql.com/downloads/***
+- **MySQL** o **MariaDB** ***https://www.mysql.com/downloads/***
 
-- JDK 11 ***https://www.oracle.com/es/java/technologies/javase/jdk11-archive-downloads.html***
+- **JDK 11** ***https://www.oracle.com/es/java/technologies/javase/jdk11-archive-downloads.html***
 
 
 ## Instalación 🔧
@@ -29,17 +29,27 @@ Clona el repositorio `git clone https://github.com/rubensantibanezacosta/Student
 
 - En la raiz del proyecto, ejecuta los scripts:
 
-    - `npm run w:install`
-    - `npm run w:launch`
+    ***Para instalar paquetes***
+      
+    - `npm run w:install` 
+    
+    ***Para lanzar el proyecto teniendo los paquetes instalados***
+    
+    - `npm run w:launch` para lanzar la aplicación si ya tienes los paquetes instalados
 
 
 ### LINUX
 
 - En la raiz del proyecto, ejecuta los scripts:
 
+    ***Para nstalar paquetes y lanzar el proyecto***
+      
     - `npm update`
     - `npm install`
-    - `npm run update-launch` para instalar paquetes y lanzar el proyecto 
+    - `npm run update-launch` 
+    
+    ***Para lanzar el proyecto teniendo los paquetes instalados***
+    
     - `npm run start` para lanzar la aplicación si ya tienes los paquetes instalados
 
 
@@ -61,18 +71,33 @@ La interfaz es bastante intuitiva y sencilla:
 ## Construido con 🛠️
 
 
-* [Angular](https://angular.io/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [Spring boot](https://spring.io/projects/spring-boot) - Framework usado para el Backend
-* [IntelliJ IDEA](https://www.jetbrains.com/es-es/idea/) - Ide utilizado
-* [Visual Studio Code](https://code.visualstudio.com/) - Editor utilizado
+* [Angular 12](https://angular.io) - *El framework JS usado*
+
+
+
+* [Bootstrap v5.0](https://getbootstrap.com/docs/5.0/getting-started/introduction) - *El framework CSS usado*
+
+
+
+* [Maven 3.6.3](https://maven.apache.org) - *Manejador de dependencias*
+* [Spring boot 2.5.5](https://spring.io/projects/spring-boot) - *Framework usado para el Backend*
+* [Hibernate](https://hibernate.org) - *Framework integrado en Spring boot*
+     - *Menciones*
+        - > Mapeado autómatico de base de datos apoyado en el IDE
+        - > CrudRepository Dao, con metodos Dao personalizados
+
+
+
+* [IntelliJ IDEA](https://www.jetbrains.com/es-es/idea) - *IDE utilizado*
+* [Visual Studio Code](https://code.visualstudio.com) - *Editor utilizado*
 
 
 ## Autores ✒️
 
 
-* **Ruben Santibañez Acosta** - *Trabajo Inicial y documentación* - [rubensantibanezacosta](https://github.com/rubensantibanezacosta)
-* **Tiburcio Cruz Ravelo** - *Asesoría técnica* - [tcurav](https://github.com/tcrurav)
+* **Ruben Santibañez Acosta** - *Desarrollo y documentación* -  [rubensantibanezacosta](https://github.com/rubensantibanezacosta)
+* **Tiburcio Cruz Ravelo** - *Asesoría técnica* -  [tcurav](https://github.com/tcrurav)
+* **Gemma Alemán Santana** - *Asesoría técnica* 
 
 
 
