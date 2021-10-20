@@ -4,7 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "echo \"Error: no test specified\" && exit 1"
+    "w:install": "start /D .\\frontend npm i | start /D .\\backend mvn install",
+    "w:launch": "start /D .\\frontend ionic serve | start /D .\\backend mvn spring-boot:run",
+    "tab:npm-i": "ttab -d frontend/ npm i",
+    "tab:serve": "ttab -d frontend/ ionic serve",
+    "tab:mvn-i": "ttab -d backend/ mvn install",
+    "tab:mvn-run": "ttab -d backend/ mvn spring-boot:run ",
+    "update-packages": "npm run tab:npm-i && npm run tab:mvn-i",
+    "start": "run-s tab:serve tab:mvn-run",
+    "update-launch": "npm run update-packages| sleep 40; npm run start"
   },
   "repository": {
     "type": "git",
@@ -12,7 +20,8 @@
   },
   "keywords": [
     "spring",
-    "react"
+    "angular",
+    "mysql"
   ],
   "author": "Ruben Santibañez Acosta",
   "license": "ISC",
