@@ -4,8 +4,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ruben.estudiantes.entity.models.Students;
+import com.ruben.estudiantes.entity.models.services.ICalifications;
 import com.ruben.estudiantes.entity.models.services.IStudents;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +19,7 @@ import java.util.Optional;
 public class StudentsController {
     @Autowired
     IStudents iStudentsService;
+    ICalifications iCalificationsService;
 
     @GetMapping("/students")
     List<Students> getAll() {
@@ -58,8 +62,10 @@ public class StudentsController {
         }
     }
 
+    @Transactional(propagation = Propagation.MANDATORY)
     @DeleteMapping("/students/{dni}")
     void delete(@PathVariable("dni") String dni) {
+        System.out.println(dni);
         iStudentsService.delete(dni);
     }
 }

@@ -23,6 +23,7 @@ export class StudentsService {
     this.httpClient.post(this.endpoint, JSON.stringify(student), this.httpOptions).subscribe(res=>console.log(res))
   }
   deleteStudent(dni: string): void {
-    this.httpClient.delete(this.endpoint + "/" + JSON.stringify(dni), this.httpOptions)
+    console.log(dni)
+    this.httpClient.delete(this.endpoint + "/" + dni, this.httpOptions).subscribe(res=>console.log(res));
   }
 }

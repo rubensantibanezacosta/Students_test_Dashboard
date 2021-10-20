@@ -41,6 +41,6 @@ public class StudentsImpl implements IStudents{
 
     @Override
     public void delete(String dni) {
-
+        iStudentsDao.deleteById(dni);
     }
 }

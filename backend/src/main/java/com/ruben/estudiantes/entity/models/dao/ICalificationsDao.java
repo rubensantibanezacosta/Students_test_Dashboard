@@ -3,7 +3,6 @@ package com.ruben.estudiantes.entity.models.dao;
 import com.ruben.estudiantes.entity.models.Califications;
 import com.ruben.estudiantes.entity.models.CalificationsPK;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
@@ -13,8 +12,6 @@ public interface ICalificationsDao extends CrudRepository <Califications, Califi
 
    Optional<Califications> findByStudentdniAndSubjectidAndYears(String studentDni, int subjectId, int  year);
    List<Califications> findAllByStudentdniAndYears(String studentDni, int year);
-   
-   void deleteCalificationsByStudentdniAndSubjectidAndYears(String studentDni, int subjectId, int  year);
 
 
 }

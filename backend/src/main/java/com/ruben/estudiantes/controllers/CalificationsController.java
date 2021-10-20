@@ -42,10 +42,9 @@ public class CalificationsController {
 
     }
 @Transactional
-    @DeleteMapping(value = "/califications/{dni}/{year}/{subjectId}")
-    void delete(@PathVariable("dni") String dni, @PathVariable("year") int year,
-            @PathVariable("subjectId") int subjectId) {
-
+    @DeleteMapping(value = "/califications/{dni}/{subjectId}/{year}")
+    void delete(@PathVariable("dni") String dni,
+            @PathVariable("subjectId") int subjectId, @PathVariable("year") int year) {
         iCalificationService.deleteCalification(dni, subjectId, year);
     }
 @Transactional
