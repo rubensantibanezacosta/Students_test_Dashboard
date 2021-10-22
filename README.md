@@ -93,6 +93,9 @@ La interfaz es bastante intuitiva y sencilla:
 
 * [IntelliJ IDEA](https://www.jetbrains.com/es-es/idea) - *IDE utilizado*
 * [Visual Studio Code](https://code.visualstudio.com) - *Editor utilizado*
+* [MySQL](https://www.mysql.com/) - *Motor de bases de datos*
+
+![Captura de pantalla de 2021-10-20 13-02-00](https://user-images.githubusercontent.com/44450566/138507831-267760fd-c5c6-4aec-9d2c-b79657b1ad87.png)
 
 
 ## Autores ✒️
