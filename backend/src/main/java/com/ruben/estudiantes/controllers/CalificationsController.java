@@ -46,7 +46,6 @@ public class CalificationsController {
 @Transactional
     @PostMapping(value = "/califications", consumes = "application/json")
     void add(@RequestBody String stringCalification) {
-        System.out.println(stringCalification);
         ObjectMapper om = new ObjectMapper();
         try {
             Califications calification = om.readValue(stringCalification, Califications.class);
@@ -63,7 +62,6 @@ public class CalificationsController {
         ObjectMapper om = new ObjectMapper();
         try {
             Califications newCalification = om.readValue(stringCalification, Califications.class);
-            System.out.println(newCalification.getCalification());
             iCalificationService.update(newCalification);
         } catch (JsonMappingException e) {
             e.printStackTrace();

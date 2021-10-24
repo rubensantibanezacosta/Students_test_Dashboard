@@ -29,9 +29,9 @@ export class HomeComponent implements OnInit {
   public selectedSubjectidToSend: number = 0;
   public media: number = 0;
   public suma: number = 0;
-  public updating:boolean=false;
-  public updatingCalificationValue=0;
-  public updatingSubject=new Subjects();
+  public updating: boolean = false;
+  public updatingCalificationValue = 0;
+  public updatingSubject = new Subjects();
 
   public fileIcon = '../../assets/icons/file-blank-solid-24.png';
   public trashIcon = '../../assets/icons/trash-solid-24.png';
@@ -90,9 +90,9 @@ export class HomeComponent implements OnInit {
 
   deleteCalification(dni: string, subjectID: number, year: number) {
     this.calificationsService.deleteCalification(dni, subjectID, year);
-    setTimeout(()=>{
+    setTimeout(() => {
       this.searchCalifications();
-    },500)
+    }, 500)
   }
 
   studentSubmit(studentForm: NgForm) {
@@ -105,7 +105,7 @@ export class HomeComponent implements OnInit {
   studentDelete() {
     this.studentsService.deleteStudent(this.selectedStudentDni);
     this.loadInfo();
-   
+
   }
 
   yearSubmit(yearForm: NgForm) {
@@ -114,13 +114,13 @@ export class HomeComponent implements OnInit {
     this.yearsService.addYear(year);
     this.loadInfo();
     window.location.reload();
-    
+
   }
 
   deleteYear() {
     this.yearsService.deleteYear(this.selectedYearNumber);
     this.loadInfo()
-    
+
   }
 
   setSelectedSubject(selectedSubjectString: string) {
@@ -132,33 +132,33 @@ export class HomeComponent implements OnInit {
   }
 
   calificationSubmit(calificationForm: NgForm) {
-    
-    if(this.updating==false){
+
+    if (this.updating == false) {
       const calification: Califications = calificationForm.value;
-    calification.studentdni = this.selectedStudentDni;
-    calification.subjectid = this.selectedSubjectidToSend;
-    calification.years = this.selectedYearNumber;
+      calification.studentdni = this.selectedStudentDni;
+      calification.subjectid = this.selectedSubjectidToSend;
+      calification.years = this.selectedYearNumber;
       this.calificationsService.addCalification(calification);
-      setTimeout(()=>{
+      setTimeout(() => {
         this.searchCalifications();
-      },500)
-    }else{
-      
+      }, 500)
+    } else {
+
       const calification: Califications = calificationForm.value;
-    calification.studentdni = this.selectedStudentDni;
-    calification.subjectid = this.updatingSubject.idsubject;
-    calification.years = this.selectedYearNumber;
- 
+      calification.studentdni = this.selectedStudentDni;
+      calification.subjectid = this.updatingSubject.idsubject;
+      calification.years = this.selectedYearNumber;
+
 
       this.calificationsService.updateCalification(calification);
     }
-    
-    this.updating=false;
-    setTimeout(()=>{
+
+    this.updating = false;
+    setTimeout(() => {
       this.searchCalifications();
-    },500)
-    
-    
+    }, 500)
+
+
   }
 
   showModal(modal: string) {
@@ -167,13 +167,13 @@ export class HomeComponent implements OnInit {
 
   hideModal(modal: string) {
     document.getElementById(modal).style.display = "none";
-    setTimeout(()=>{this.updating=false},500);
+    setTimeout(() => { this.updating = false }, 500);
   }
 
-  setCalificationUpdating(value:number, subjectValue:Subjects){
-    this.updating=true;
-    this.updatingSubject=subjectValue;
-    this.updatingCalificationValue=value;
-    console.log(`updating: ${this.updating} , updatingSubject: ${this.updatingSubject.idsubject} , value: ${this.updatingCalificationValue}` )
+  setCalificationUpdating(value: number, subjectValue: Subjects) {
+    this.updating = true;
+    this.updatingSubject = subjectValue;
+    this.updatingCalificationValue = value;
+    console.log(`updating: ${this.updating} , updatingSubject: ${this.updatingSubject.idsubject} , value: ${this.updatingCalificationValue}`)
   }
 }
