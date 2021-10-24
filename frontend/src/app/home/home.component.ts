@@ -99,12 +99,17 @@ export class HomeComponent implements OnInit {
     const student: Student = studentForm.value;
     this.studentsService.addStudent(student);
     this.loadInfo();
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 500)
   }
 
   studentDelete() {
     this.studentsService.deleteStudent(this.selectedStudentDni);
     this.loadInfo();
+    setTimeout(() => {
+      window.location.reload();
+    },500)
 
   }
 
@@ -113,13 +118,18 @@ export class HomeComponent implements OnInit {
     console.log(year);
     this.yearsService.addYear(year);
     this.loadInfo();
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    },500)
 
   }
 
   deleteYear() {
     this.yearsService.deleteYear(this.selectedYearNumber);
     this.loadInfo()
+    setTimeout(() => {
+      window.location.reload();
+    },500)
 
   }
 
