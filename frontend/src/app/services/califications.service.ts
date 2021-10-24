@@ -26,4 +26,10 @@ export class CalificationsService {
       console.log(data);
     });
   }
+  updateCalification(calification: Califications) {
+    console.log(calification);
+    return this.httpClient.put(this.endpoint, JSON.stringify(calification), this.httpOptions).subscribe((data) => {
+      console.log(data);
+    });
+  }
 }

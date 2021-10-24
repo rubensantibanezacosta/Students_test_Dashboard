@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit {
   public selectedSubjectidToSend: number = 0;
   public media: number = 0;
   public suma: number = 0;
+  public updating:boolean=false;
+  public updatingCalificationValue=0;
+  public updatingSubject=new Subjects();
 
   public fileIcon = '../../assets/icons/file-blank-solid-24.png';
   public trashIcon = '../../assets/icons/trash-solid-24.png';
@@ -87,8 +90,9 @@ export class HomeComponent implements OnInit {
 
   deleteCalification(dni: string, subjectID: number, year: number) {
     this.calificationsService.deleteCalification(dni, subjectID, year);
-    this.searchCalifications();
-    window.location.reload();
+    setTimeout(()=>{
+      this.searchCalifications();
+    },500)
   }
 
   studentSubmit(studentForm: NgForm) {
@@ -128,14 +132,33 @@ export class HomeComponent implements OnInit {
   }
 
   calificationSubmit(calificationForm: NgForm) {
-    const calification: Califications = calificationForm.value;
+    
+    if(this.updating==false){
+      const calification: Califications = calificationForm.value;
     calification.studentdni = this.selectedStudentDni;
     calification.subjectid = this.selectedSubjectidToSend;
     calification.years = this.selectedYearNumber;
-    this.calificationsService.addCalification(calification);
-    this.searchCalifications();
-    window.location.reload();
+      this.calificationsService.addCalification(calification);
+      setTimeout(()=>{
+        this.searchCalifications();
+      },500)
+    }else{
+      
+      const calification: Califications = calificationForm.value;
+    calification.studentdni = this.selectedStudentDni;
+    calification.subjectid = this.updatingSubject.idsubject;
+    calification.years = this.selectedYearNumber;
+ 
 
+      this.calificationsService.updateCalification(calification);
+    }
+    
+    this.updating=false;
+    setTimeout(()=>{
+      this.searchCalifications();
+    },500)
+    
+    
   }
 
   showModal(modal: string) {
@@ -144,5 +167,13 @@ export class HomeComponent implements OnInit {
 
   hideModal(modal: string) {
     document.getElementById(modal).style.display = "none";
+    setTimeout(()=>{this.updating=false},500);
+  }
+
+  setCalificationUpdating(value:number, subjectValue:Subjects){
+    this.updating=true;
+    this.updatingSubject=subjectValue;
+    this.updatingCalificationValue=value;
+    console.log(`updating: ${this.updating} , updatingSubject: ${this.updatingSubject.idsubject} , value: ${this.updatingCalificationValue}` )
   }
 }

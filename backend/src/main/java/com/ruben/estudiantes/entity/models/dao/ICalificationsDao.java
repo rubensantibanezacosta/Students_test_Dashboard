@@ -14,4 +14,5 @@ public interface ICalificationsDao extends CrudRepository <Califications, Califi
    List<Califications> findAllByStudentdniAndYears(String studentDni, int year);
 
 
+
 }

@@ -1,4 +1,5 @@
-<div class="
+<div
+  class="
     jumbotron
     text-center
     p-5
@@ -6,13 +7,15 @@
     rounded
     m-5
     border-3 border border-info
-  ">
+  "
+>
   <h1 class="text-info">PANEL DEL ALUMNO</h1>
 </div>
 <div class="container main bg-transparent">
   <div class="row justify-content-center mb-4">
     <div class="col-2 d-flex justify-content-end h-25 mt-5">
-      <button class="
+      <button
+        class="
           btn btn-outline-info
           text-light
           h-40
@@ -20,10 +23,13 @@
           bg-gradient
           d-flex
           justify-content-center
-        " (click)="showModal('studentModal')">
+        "
+        (click)="showModal('studentModal')"
+      >
         <img src="{{ fileIcon }}" alt="" />
       </button>
-      <button class="
+      <button
+        class="
           btn btn-outline-info
           text-light
           h-40
@@ -31,24 +37,16 @@
           bg-gradient
           d-flex
           justify-content-center
-        ">
-        <img src="{{ editIcon }}" alt="" />
-      </button>
-      <button class="
-          btn btn-outline-info
-          text-light
-          h-40
-          w-30
-          bg-gradient
-          d-flex
-          justify-content-center
-        " (click)="studentDelete()">
+        "
+        (click)="studentDelete()"
+      >
         <img src="{{ trashIcon }}" alt="" />
       </button>
     </div>
 
     <div class="col-6 mb-5 p-0">
-      <p class="
+      <p
+        class="
           border
           rounded
           border-3 border-info
@@ -57,11 +55,15 @@
           text-center
           m-0
           bg-transparent
-        ">
+        "
+      >
         ALUMNO
       </p>
 
-      <select #selectedStudent (change)="searchCalificationsByStudentDni(selectedStudent.value)" class="
+      <select
+        #selectedStudent
+        (change)="searchCalificationsByStudentDni(selectedStudent.value)"
+        class="
           form-select
           border-3 border-info
           form-select-lg
@@ -70,19 +72,25 @@
           p-0
           bg-transparent
           text-light
-        " aria-label=".form-select-lg">
+        "
+        aria-label=".form-select-lg"
+      >
         <option selected class="text-light text-center bg-dark">
           Selecciona alumno...
         </option>
-        <option *ngFor="let student of students" class="text-light text-center bg-dark justify-content-between"
-          value="{{ student.dni }}">
+        <option
+          *ngFor="let student of students"
+          class="text-light text-center bg-dark justify-content-between"
+          value="{{ student.dni }}"
+        >
           {{ student.dni }} | {{ student.name }} | {{ student.surname }}
         </option>
       </select>
     </div>
 
     <div class="col-1 mb-5 p-0">
-      <p class="
+      <p
+        class="
           border
           rounded
           border-3 border-info
@@ -91,10 +99,14 @@
           text-center
           m-0
           bg-transparent
-        ">
+        "
+      >
         AÑO
       </p>
-      <select #selectedYear (change)="searchCalificationsByYear(selectedYear.value)" class="
+      <select
+        #selectedYear
+        (change)="searchCalificationsByYear(selectedYear.value)"
+        class="
           form-select
           border-3 border-info
           form-select-lg
@@ -103,19 +115,29 @@
           p-0
           bg-transparent
           text-light
-        ">
+        "
+      >
         <option selected class="text-light text-center bg-dark">...</option>
-        <option *ngFor="let year of years" class="text-light text-center bg-dark justify-content-between"
-          value="{{ year.year }}">
+        <option
+          *ngFor="let year of years"
+          class="text-light text-center bg-dark justify-content-between"
+          value="{{ year.year }}"
+        >
           {{ year.year }}
         </option>
       </select>
     </div>
     <div class="col-2 d-flex justify-content-start h-25 mt-5">
-      <button class="btn btn-outline-info text-light h-33 w-33 bg-gradient" (click)="showModal('yearModal')">
+      <button
+        class="btn btn-outline-info text-light h-33 w-33 bg-gradient"
+        (click)="showModal('yearModal')"
+      >
         <img src="{{ fileIcon }}" alt="" />
       </button>
-      <button class="btn btn-outline-info text-light h-33 w-33 bg-gradient" (click)="deleteYear()">
+      <button
+        class="btn btn-outline-info text-light h-33 w-33 bg-gradient"
+        (click)="deleteYear()"
+      >
         <img src="{{ trashIcon }}" alt="" />
       </button>
     </div>
@@ -129,32 +151,49 @@
           <th class="text-center celda">NOTA</th>
           <th class="text-center celda botonera"></th>
           <th class="text-center celda botonera">
-            <button (click)="showModal('calificationsModal')"
-              class="btn btn-outline-info text-light h-33 w-100 bg-gradient">
+            <button
+              (click)="showModal('calificationsModal')"
+              class="btn btn-outline-info text-light h-33 w-100 bg-gradient"
+            >
               <img src="{{ fileIcon }}" alt="" />
             </button>
           </th>
         </tr>
         <tr *ngFor="let calification of califications">
           <td class="text-center text-light celda">
-            {{ calification.subjectsBySubjectid.name}}
+            {{ calification.subjectsBySubjectid.name }}
           </td>
           <td class="text-center text-light celda">
             {{ calification.calification }}
           </td>
           <td class="text-center text-light botonera">
-            <button class="btn btn-outline-info text-light h-33 w-100 bg-gradient">
-              <img src="{{ editIcon }}" alt="" />
+            <button
+              class="btn btn-outline-info text-light h-33 w-100 bg-gradient"
+            >
+              <img
+                (click)="
+                  setCalificationUpdating(
+                    calification.calification,
+                    calification.subjectsBySubjectid
+                  )
+                "
+                (click)="showModal('calificationsModal')"
+                src="{{ editIcon }}"
+                alt=""
+              />
             </button>
           </td>
           <td class="text-center text-light botonera">
-            <button class="btn btn-outline-info text-light h-33 w-100 bg-gradient" (click)="
+            <button
+              class="btn btn-outline-info text-light h-33 w-100 bg-gradient"
+              (click)="
                 deleteCalification(
                   calification.studentdni,
                   calification.subjectid,
                   calification.years
                 )
-              ">
+              "
+            >
               <img src="{{ trashIcon }}" alt="" />
             </button>
           </td>
@@ -168,93 +207,259 @@
       </table>
     </div>
 
-
     <div id="studentModal" class="modals">
-
-      <form #studentForm="ngForm" (ngSubmit)=studentSubmit(studentForm)
-        class="position-absolute col-3 bg-dark bg-gradient p-4 top-0 mt-4  border rounded border-info border-3 text-info d-flex flex-column justify-content-around">
-        <div class="d-flex justify-content-end ">
-          <img src="{{closeIcon}}" alt="" (click)="hideModal('studentModal')">
+      <form
+        #studentForm="ngForm"
+        (ngSubmit)="studentSubmit(studentForm)"
+        class="
+          position-absolute
+          col-3
+          bg-dark bg-gradient
+          p-4
+          top-0
+          mt-4
+          border
+          rounded
+          border-info border-3
+          text-info
+          d-flex
+          flex-column
+          justify-content-around
+        "
+      >
+        <div class="d-flex justify-content-end">
+          <img
+            src="{{ closeIcon }}"
+            alt=""
+            (click)="hideModal('studentModal')"
+          />
         </div>
         <div class="w-100 d-flex justify-content-center text-info">
           <h6>ALUMNO</h6>
         </div>
-        <div class="form-group ">
+        <div class="form-group">
           <label>DNI</label>
-          <input type="text" class="form-control" ngModel placeholder="DNI" name="dni" required #dni>
+          <input
+            type="text"
+            class="form-control"
+            ngModel
+            placeholder="DNI"
+            name="dni"
+            required
+            #dni
+          />
           <label>APELLIDOS</label>
-          <input type="text" class="form-control" ngModel placeholder="Apellidos" required name="surname" #surname>
+          <input
+            type="text"
+            class="form-control"
+            ngModel
+            placeholder="Apellidos"
+            required
+            name="surname"
+            #surname
+          />
           <label>NOMBRE</label>
-          <input type="text" class="form-control" ngModel placeholder="Nombre" required name="name" #name>
+          <input
+            type="text"
+            class="form-control"
+            ngModel
+            placeholder="Nombre"
+            required
+            name="name"
+            #name
+          />
         </div>
-        <button type="submit" class="btn btn-outline-info border border-info border-2 text-info  bg-gradient mt-5"
-          (click)="hideModal('studentModal')">
+        <button
+          type="submit"
+          class="
+            btn btn-outline-info
+            border border-info border-2
+            text-info
+            bg-gradient
+            mt-5
+          "
+          (click)="hideModal('studentModal')"
+        >
           Guardar
-          <img src="{{saveIcon}}" alt="">
+          <img src="{{ saveIcon }}" alt="" />
         </button>
       </form>
-
     </div>
 
     <div id="yearModal" class="modals">
-
-      <form #yearForm="ngForm" (ngSubmit)=yearSubmit(yearForm)
-        class="position-absolute col-3 bg-dark bg-gradient p-4 top-0 mt-4  border rounded border-info border-3 text-info d-flex flex-column justify-content-around">
-        <div class="d-flex justify-content-end ">
-          <img src="{{closeIcon}}" alt="" (click)="hideModal('yearModal')">
+      <form
+        #yearForm="ngForm"
+        (ngSubmit)="yearSubmit(yearForm)"
+        class="
+          position-absolute
+          col-3
+          bg-dark bg-gradient
+          p-4
+          top-0
+          mt-4
+          border
+          rounded
+          border-info border-3
+          text-info
+          d-flex
+          flex-column
+          justify-content-around
+        "
+      >
+        <div class="d-flex justify-content-end">
+          <img src="{{ closeIcon }}" alt="" (click)="hideModal('yearModal')" />
         </div>
         <div class="w-100 d-flex justify-content-center text-info">
           <h6>AÑO</h6>
         </div>
-        <div class="form-group ">
-
-
-          <input type="number" min=2015 max=2050 class="form-control" ngModel placeholder="2021" required name="year"
-            #year>
+        <div class="form-group">
+          <input
+            type="number"
+            min="2015"
+            max="2050"
+            class="form-control"
+            ngModel
+            placeholder="2021"
+            required
+            name="year"
+            #year
+          />
         </div>
-        <button type="submit" class="btn btn-outline-info border border-info border-2 text-info  bg-gradient mt-5"
-          (click)="hideModal('yearModal')">
+        <button
+          type="submit"
+          class="
+            btn btn-outline-info
+            border border-info border-2
+            text-info
+            bg-gradient
+            mt-5
+          "
+          (click)="hideModal('yearModal')"
+        >
           Guardar
-          <img src="{{saveIcon}}" alt="">
+          <img src="{{ saveIcon }}" alt="" />
         </button>
       </form>
-
     </div>
 
     <div id="calificationsModal" class="modals">
-
-      <form #calificationForm="ngForm" (ngSubmit)=calificationSubmit(calificationForm)
-        class="position-absolute col-3 bg-dark bg-gradient p-4 top-0 mt-4  border rounded border-info border-3 text-info d-flex flex-column justify-content-around">
-        <div class="d-flex justify-content-end ">
-          <img src="{{closeIcon}}" alt="" (click)="hideModal('calificationsModal')">
+      <form
+        #calificationForm="ngForm"
+        (ngSubmit)="calificationSubmit(calificationForm)"
+        class="
+          position-absolute
+          col-3
+          bg-dark bg-gradient
+          p-4
+          top-0
+          mt-4
+          border
+          rounded
+          border-info border-3
+          text-info
+          d-flex
+          flex-column
+          justify-content-around
+        "
+      >
+        <div class="d-flex justify-content-end">
+          <img
+            src="{{ closeIcon }}"
+            alt=""
+            (click)="hideModal('calificationsModal')"
+          />
         </div>
         <div class="w-100 d-flex justify-content-center text-info">
           <h6>ASIGNATURA</h6>
         </div>
-        <div class="form-group ">
-
-          <select #selectedSubjectToSend (change)="setSelectedSubjectToSend(selectedSubjectToSend.value)" class="
-          form-select
-          border-3 border-info
-          form-select-lg
-          h-100
-          m-0
-          p-0
-          bg-transparent
-          text-light
-        ">
-            <option selected class="text-light text-center bg-dark">...</option>
-            <option *ngFor="let subject of subjects" class="text-light text-center bg-dark justify-content-between"
-              value="{{ subject.idsubject }}">
+        <div class="form-group">
+          <select
+            *ngIf="this.updating == false"
+            #selectedSubjectToSend
+            (change)="setSelectedSubjectToSend(selectedSubjectToSend.value)"
+            class="
+              form-select
+              border-3 border-info
+              form-select-lg
+              h-100
+              m-0
+              p-0
+              bg-transparent
+              text-light
+            "
+          >
+            <option class="text-light text-center bg-dark">...</option>
+            <option
+              *ngFor="let subject of subjects"
+              class="text-light text-center bg-dark justify-content-between"
+              value="{{ subject.idsubject }}"
+            >
               {{ subject.name }}
             </option>
           </select>
-          <input type="number" ngModel name="calification" #calification min="0.00" max="10.00" step="0.01"
-            class="form-control mt-2" placeholder=0.00>
+          <select
+            *ngIf="this.updating == true"
+            #selectedSubjectToSend
+            (change)="setSelectedSubjectToSend(selectedSubjectToSend.value)"
+            class="
+              form-select
+              border-3 border-info
+              form-select-lg
+              h-100
+              m-0
+              p-0
+              bg-transparent
+              text-light
+            "
+          >
+            <option
+              *ngIf="this.updating == true"
+              class="text-light text-center bg-dark justify-content-between"
+              value="{{ this.updatingSubject.idsubject }}"
+            >
+              {{ updatingSubject.name }}
+            </option>
+          </select>
+
+          <input
+            *ngIf="this.updating == false"
+            type="number"
+            ngModel
+            name="calification"
+            #calification
+            min="0.00"
+            max="10.00"
+            step="0.01"
+            class="form-control mt-2"
+            placeholder="0.00"
+          />
+
+          <input
+            *ngIf="this.updating == true"
+            type="number"
+            ngModel
+            name="calification"
+            #calification
+            min="0.00"
+            max="10.00"
+            step="0.01"
+            class="form-control mt-2"
+            placeholder="{{ updatingCalificationValue }}"
+          />
         </div>
-        <button type="submit" class="btn btn-outline-info border border-info border-2 text-info  bg-gradient mt-5"
-          (click)="hideModal('calificationsModal')">Guardar
-          <img src="{{saveIcon}}" alt="">
+        <button
+          type="submit"
+          class="
+            btn btn-outline-info
+            border border-info border-2
+            text-info
+            bg-gradient
+            mt-5
+          "
+          (click)="hideModal('calificationsModal')"
+        >
+          Guardar
+          <img src="{{ saveIcon }}" alt="" />
         </button>
       </form>
     </div>

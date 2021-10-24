@@ -43,4 +43,20 @@ public class CalificationsImpl implements  ICalifications {
         iCalificationsDao.save(calification);
     }
 
+    @Override
+    public void update(Califications calification) {
+        CalificationsPK calificationsPK=new CalificationsPK();
+        calificationsPK.setYears(calification.getYears());
+        calificationsPK.setStudentdni(calification.getStudentdni());
+        calificationsPK.setSubjectid(calification.getSubjectid());
+
+        if(iCalificationsDao.findById(calificationsPK).isPresent()){
+            Califications oldCalification=iCalificationsDao.findById(calificationsPK).get();
+            iCalificationsDao.deleteById(calificationsPK);
+            oldCalification.setCalification(calification.getCalification());
+            iCalificationsDao.save(oldCalification);
+        }
+
+    }
+
 }

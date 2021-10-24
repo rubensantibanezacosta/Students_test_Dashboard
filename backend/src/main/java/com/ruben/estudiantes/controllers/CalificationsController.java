@@ -5,11 +5,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ruben.estudiantes.entity.models.Califications;
 import com.ruben.estudiantes.entity.models.services.CalificationsImpl;
-import com.ruben.estudiantes.entity.models.services.IStudents;
-import com.ruben.estudiantes.entity.models.services.ISubjects;
-import com.ruben.estudiantes.entity.models.services.IYears;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -61,19 +57,20 @@ public class CalificationsController {
             e.printStackTrace();
         }
     }
-/* 
+
     @PutMapping(value = "/califications", consumes = "application/json")
     void update(@RequestBody String stringCalification) {
         ObjectMapper om = new ObjectMapper();
         try {
             Califications newCalification = om.readValue(stringCalification, Califications.class);
-            iCalificationsService.update(newCalification);
+            System.out.println(newCalification.getCalification());
+            iCalificationService.update(newCalification);
         } catch (JsonMappingException e) {
             e.printStackTrace();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-    } */
+    }
 
 
 }

@@ -14,5 +14,6 @@ public interface ICalifications  {
     void deleteCalification(String studentDni, int subjectId, int year);
 
     void add(Califications calification);
+    void update(Califications calification);
 
 }
